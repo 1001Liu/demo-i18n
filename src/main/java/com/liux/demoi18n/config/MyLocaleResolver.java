@@ -11,7 +11,7 @@ import java.util.Locale;
  * @author :liuxin
  * @version :V1.0
  * @program : demo-i18n
- * @date :Create in 2022/7/28 11:22
+ * @date :Create in 2022/7/24 11:22
  * @description :自定义国际化解析器
  */
 public class MyLocaleResolver implements LocaleResolver {

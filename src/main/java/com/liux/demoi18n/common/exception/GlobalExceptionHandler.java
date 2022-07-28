@@ -20,7 +20,7 @@ import java.util.List;
  * @author :liuxin
  * @version :V1.0
  * @program : demo-i18n
- * @date :Create in 2022/7/28 10:02
+ * @date :Create in 2022/7/24 10:02
  * @description :全局异常处理
  */
 @Slf4j

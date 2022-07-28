@@ -4,7 +4,7 @@ package com.liux.demoi18n.constant;
  * @author :liuxin
  * @version :V1.0
  * @program : demo-i18n
- * @date :Create in 2022/7/28 10:19
+ * @date :Create in 2022/7/24 10:19
  * @description :异常枚举
  */
 public enum ErrCodeEnum {

@@ -10,7 +10,7 @@ import javax.annotation.Resource;
  * @author :liuxin
  * @version :V1.0
  * @program : demo-i18n
- * @date :Create in 2022/7/28 11:33
+ * @date :Create in 2022/7/24 11:33
  * @description :国际化消息处理
  */
 @Component

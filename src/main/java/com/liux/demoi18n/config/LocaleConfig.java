@@ -10,7 +10,7 @@ import org.springframework.web.servlet.LocaleResolver;
  * @author :liuxin
  * @version :V1.0
  * @program : demo-i18n
- * @date :Create in 2022/7/28 11:25
+ * @date :Create in 2022/7/24 11:25
  * @description :本地化配置
  */
 @Configuration
