@@ -528,7 +528,7 @@ public enum ErrCodeEnum {
 * **正例**
 
 ```yaml
-NO_PART_DB=根据组合码：{pflNo}，找不到对应的分DB，请在t_sys_pflpartition 表配置相应的信息
+USER_NOT_EXIST=User: [{0}] does not exist, please confirm whether the userName is correct
 ```
 
 * **反例**
@@ -552,49 +552,60 @@ NO_PART_DB=根据组合码：{pflNo}，找不到对应的分DB，请在t_sys_pfl
 * **正例**
 
 ```java
-public Long queryPortfolioNoByFundCode(String fundCode)throws ParamException{
-        Long no=WholeDb.getInstance().executeQueryObject(SELECT_PORTFOLIO_NO_BY_FOUND_CODE,new Object[]{fundCode},ResultSetConvertor.LONG);
-        if(no==null){
-        log.error("传入基金编码有误{}",fundCode);
-        throw new ParamException(RiskResultEnum.NOT_FIND_COMBINATION.getCode(),RiskResultEnum.NOT_FIND_COMBINATION.getMsg());
-        }
-        return no;
-        }
-```
+package com.liux.demoi18n.common.exception;
 
-```java
-package com.gffunds.demo.java.exception;
+import lombok.Data;
 
 /**
- * @author liux
- * @version 1.0.0
- * @Title: NoPartDbException
- * @Description: 根据组合id找不到分DB的异常
- * @date 2022/06/02
+ * @author :liuxin
+ * @version :V1.0
+ * @program : demo-i18n
+ * @date :Create in 2022/7/28 11:11
+ * @description :基础异常
  */
-public class NoPartDbException extends RuntimeException {
+@Data
+public class BaseException extends Exception {
 
-    public NoPartDbException() {
+    private int code;
+
+    private String message;
+
+    private Object[] params;
+
+    public BaseException() {
     }
 
-    public NoPartDbException(String message) {
+    public BaseException(String message) {
         super(message);
+        this.message = message;
     }
 
-    public NoPartDbException(String message, Throwable cause) {
+    public BaseException(String message, Throwable cause) {
         super(message, cause);
+        this.message = message;
     }
 
-    public NoPartDbException(Throwable cause) {
+
+    public BaseException(Throwable cause) {
         super(cause);
     }
 
-    public NoPartDbException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
+    public BaseException(int code, String message) {
+        super(message);
+        this.code = code;
+        this.message = message;
     }
+
+    public BaseException(int code, Object[] params) {
+        this.code = code;
+        this.params = params;
+    }
+
 }
 
 ```
+
+
 
 * **反例**
 
@@ -602,22 +613,13 @@ public class NoPartDbException extends RuntimeException {
 
 @Override
 public ReturnResult ruleCheckPass(RuleCheckResultQueryDto ruleCheckResultQueryDto)throws Exception{
-        ReturnResult returnResult=new ReturnResult();
-        if(ruleCheckResultQueryDto.getCheckStatus()!=2){
-        return returnResult;
-        }
-        try{
-        riskRuleDao.ruleCheckPass(ruleCheckResultQueryDto);
-        }catch(Exception e){
-        log.error(e.getMessage());
-        throw new Exception("规则检查出错"+e.getMessage());
-        }
-        return returnResult;
+       // 
+    throw new NoSuchPaddingException();
         }
 ```
 
 ```java
- public Object callKsb(KsbInputData ksbInputData)throws IOException,NoSuchPaddingException,NoSuchAlgorithmException,IllegalBlockSizeException,BadPaddingException,DocumentException,InvalidKeyException,InvalidKeySpecException{
+ public Object call(InputData inputData)throws IOException,NoSuchPaddingException,NoSuchAlgorithmException,IllegalBlockSizeException,BadPaddingException,DocumentException,InvalidKeyException,InvalidKeySpecException{
         //业务逻辑
         }
 ```
