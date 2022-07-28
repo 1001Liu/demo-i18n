@@ -287,13 +287,13 @@ HierarchicalMessageSource接口最重要的两个实现类是**ResourceBundleMes
 
 1）生成国际化配置文件，如下图所示:
 
-![1658990739444](image\22.png)
+![1658990739444](image/配置1.png)
 
 
 
 2)根据生成文件名称在yml里配置对应的解析文件名称，如下图所示：
 
-![1658990780714](image\11.png)
+![1658990780714](image\配置.png)
 
 
 
